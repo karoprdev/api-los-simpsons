@@ -6,24 +6,24 @@ import Characters from './components/Characters';
 function App() {
   const [characters, setCharacters] = useState(null);
 
-  const getCharacters = async () => {
-    try {
-      const apiCharacters = await fetch('https://thesimpsonsquoteapi.glitch.me/quotes?count=50');
-      const jsonCharacters = await apiCharacters.json();
+   const getCharacters = async () => {
+  try {
+    const apiCharacters = await fetch('https://thesimpsonsapi.com/api/characters');
+    const json = await apiCharacters.json();
 
-      let charactersMap = jsonCharacters.map(item => {
-        return [item.character, item]
-      });
-      let charactersMapArr = new Map(charactersMap); //Pares de clave y valor
+    // La API ahora retorna { count, next, prev, pages, results: [] }
+    const firstPageCharacters = json.results; // ← AQUI ESTÁN LOS PERSONAJES
 
-      let uniqueCharacters = [...charactersMapArr.values()]; //Conversión a un array
+    console.log(firstPageCharacters);
 
-      setCharacters(uniqueCharacters);
+    // Guardar en el estado
+    setCharacters(firstPageCharacters);
 
-    } catch (error) {
-      console.log(error);
-    }
+  } catch (error) {
+    console.log(error);
   }
+};
+
 
   return (
     <div className="App">

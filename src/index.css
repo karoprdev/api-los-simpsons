@@ -29,6 +29,7 @@ body {
   border-radius: 5px;
   cursor: pointer;
   text-align: center;
+  margin-bottom: 10px;
 }
 
 .btn:hover {
@@ -50,7 +51,7 @@ body {
 
 .characters-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 10px;
   padding: 20px 5px;
 }
@@ -80,8 +81,13 @@ body {
 .character-details p {
   font-size: 14px;
   color: #204762;
-  text-align: left;
-  margin: 15px 10px 10px 10px;
+  text-align: center;
+  margin: 4px 10px;
+}
+.span-p {
+  font-size: 14px;
+  color: #b99620;
+  font-weight: 500;
 }
 
 @media (max-width: 768px) {

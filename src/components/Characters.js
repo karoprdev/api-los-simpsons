@@ -16,9 +16,10 @@ export default function Characters(props) {
         <div className="characters-container">
             {characters.map((character, index) => (
                 <div className="character-details" key={index}>
-                    <h3>{character.character}</h3>
-                    <img src={character.image} alt={character.character} />
-                    <p>{character.quote}</p>
+                    <h3>{character.name}</h3>
+                    <img src={`https://cdn.thesimpsonsapi.com/500${character.portrait_path}`} alt={character.name} />
+                    <p><span className="span-p">Occupation: </span>{character.occupation}</p>
+                    <p><span className='span-p'>Age: </span>{character.age}</p>
                 </div>
             ))}
         </div>
